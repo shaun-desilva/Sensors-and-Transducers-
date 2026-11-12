@@ -1,52 +1,42 @@
 # Sensors and Transducers · SCT 491-2
 
-A responsive, dependency-free learning site for fourth-year undergraduates, beginning with circuit and measurement fundamentals.
+Student-centred, responsive learning notes for resistive sensors. Static HTML, CSS, JavaScript, native MathML equations and SVG diagrams; no build step or API keys.
 
-## Teaching content
+## Current lessons
 
-- Week 1: beginner foundation recap and course guide.
-- Week 2: complete self-paced lesson on resistive sensors, with potentiometer, loading, strain-gauge and Wheatstone-bridge simulations; exact and approximate bridge outputs; temperature compensation; a calibration lab; formative checks; teach-back prompts; saved notes and completion tracking.
-- Weeks 3–15: curriculum previews, explicitly marked as unreleased. Weeks 11–12 await lecturer scheduling. Magnetic sensors and fusion share Weeks 14–15 in the supplied curriculum.
+1. Introduction and basic electrical concepts
+2. Potentiometric displacement sensors
+3. Loading effect
+4. Strain gauges
+5. Wheatstone bridge, recreated from the latest reference-chat reply
 
-The site is grounded in the supplied **SCT 491 - 2 Sensors and Transducers.pdf**, printed pages 330–331, and **SCT491 Lec2 Lesson Plan.docx**. Source documents are not redistributed. Their contents are reference material rather than instructions to the developer. The Week 1 recap is supporting material; no Week 1 lesson plan was supplied.
+The Practical Lab and Check & Reflect tabs follow these five parts. Parts 6 (Temperature Compensation) and 7 (Cantilever Load Cells) have been removed from navigation, runtime loading, printing and this deployment package at the lecturer's request. Remaining course topics are previews.
 
-### Technical references
+The supplied curriculum PDF and Lecture 2 lesson plan, plus the referenced “Explain Day 2 Concepts” student notes, guide the content. Course documents are not redistributed.
 
-- [NI: Measuring strain with strain gauges](https://www.ni.com/en/shop/data-acquisition/sensor-fundamentals/measuring-strain-with-strain-gages.html)
-- [NI: Temperature effects in strain measurement](https://www.ni.com/en/shop/data-acquisition/sensor-fundamentals/measuring-strain-with-strain-gages/how-is-temperature-affecting-your-strain-measurement-accuracy-.html)
-- [GitHub Pages: custom workflows](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)
+## Circuit diagrams and images
 
-## Run locally
+Grey components are fixed resistors. Blue identifies tensile/increasing-resistance gauges, loads and output-voltage elements. Orange identifies compressive/decreasing-resistance gauges. Wires are black on white. Labels remain explicit so colour alone is not required.
 
-Open `index.html` directly, or run `python -m http.server 4173` in this folder and visit `http://localhost:4173`. No installation, build, external fonts, accounts, or API keys are required. The simulations are idealised teaching models, not instrument specifications.
+Original lecturer-supplied photos and GIFs are in assets. Added images show a load-cell cutaway, a four-gauge load-cell arrangement, and bending-beam tension/compression. Supplied image labels and colour conventions are explained in their captions where they differ from the teaching schematics.
 
-## Publish on GitHub Pages
+Part 5 uses A at the left midpoint, B at the right, and Vout = VB − VA. Its active quarter gauge is R4, half gauges are R3/R4, and full-bridge tension gauges are R1/R4. Other circuits retain their explicitly marked measurement-lead conventions.
 
-1. Push the files to the repository's `main` branch.
-2. In **Settings → Pages → Build and deployment**, choose **GitHub Actions** as the source.
-3. The included **Publish course site** workflow deploys on every push to `main`. If Pages was enabled after the push, open **Actions → Publish course site → Run workflow**.
-4. Use the actual URL returned by the deployment. The expected project address is `https://shaun-desilva.github.io/Sensors-and-Transducers-/`.
+## Run and publish
 
-GitHub repository permissions and Pages availability determine whether publishing can be enabled. The workflow only uploads the seven public site files, the `assets` folder, and `.nojekyll`, not development scripts or documents.
+Open index.html or serve this directory with `python -m http.server 4173`.
 
-## Add next week's lesson
+Extract the complete website ZIP. Upload all extracted files and the assets folder beside index.html in the repository root. Select Settings → Pages → GitHub Actions; the included .github/workflows/pages.yml deploys the complete package.
 
-Edit `app.js`: replace the relevant roadmap response with a lesson renderer, supply section labels, and update its week status. Existing content uses `card()`, `worked()`, and `activity()` helpers. The Week 2 renderer is a concrete example. Keep source attribution, units, assumptions, sign conventions, and forthcoming/released status explicit. Test mobile layout and every calculation before pushing.
+Do not upload only the HTML/JS files or flatten the assets directory. The workflow names every runtime module and copies assets recursively. Parts 6/7 are not included in its copy list.
 
-## Student workflow and privacy
+Notes and completion status are stored only in this browser. They are not submitted to the lecturer. Existing lab/review completion is preserved when removing the two lesson tabs. The practical provides local CSV export and explicitly simulated sample data.
 
-Students predict, experiment, record explanations, discuss and teach back. Notes and section completion are stored in browser local storage on that device. They are not sent to the lecturer or synchronised across devices. If browser storage is blocked, notes cannot persist. Clearing browser data removes saved work. Lab CSV export is local; no assessment submission or central gradebook is provided. Export readings before leaving the lab section. Printing from Week 2 prints the complete lesson with worked examples expanded.
+Technical reading: https://www.ni.com/en/shop/data-acquisition/sensor-fundamentals/measuring-strain-with-strain-gages.html
+GitHub Pages workflow documentation: https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages
 
-The practical's sample readings are explicitly simulated. Real-rig work requires lecturer supervision and equipment-specific load, voltage and power limits. The bridge model states resistor positions, output polarity, gauge orientation and equal-strain assumptions. Course assessment percentages reproduce the supplied curriculum, not a new grading policy.
+## Optional video references and strain-gauge photographs
 
-Equations use native MathML for fractions, subscripts and mathematical typography, with symbol definitions and units. No external equation-rendering service is required. Lesson durations and activity time allocations are omitted.
+Three additional lecturer-supplied strain-gauge images appear beside the construction notes. The existing lesson text is retained. Every current lesson part, the practical and final review now has a separate optional YouTube-reference panel, with creator attribution and source links. Videos use a click-to-load youtube-nocookie.com player plus a direct YouTube fallback; playback depends on internet access and creator availability. No videos are downloaded or redistributed. Future unreleased topics are unchanged.
 
-The Week 2 Introduction follows the student learning note in the referenced “Explain Day 2 Concepts” chat: electrical foundations, five interactive experiments with reset controls, circuit diagrams, worked examples, a mathematical summary and formative quiz. It uses original inline SVG diagrams so it works offline.
-
-The introduction also includes the lecturer-supplied linear slide potentiometer photograph in `assets/linear-slide-potentiometer.png`. Keep the assets directory when uploading or deploying the site.
-
-Part 2 expands the Potentiometers tab using the referenced student note. It includes the supplied exploded-view image, schematic linear/rotary cutaways, four working experiments (position, rotary angle, sensitivity, wire-wound resolution), resets, definitions, worked examples and seven formative questions. Native SVG cutaways are conceptual illustrations, not component-specific construction or wiring instructions.
-
-Additional lecturer-supplied media include a rotary component photograph, a hybrid track construction drawing and two original GIF animations. Animations are user-started and can be stopped. The linear GIF’s inconsistent end-voltage labelling is explicitly discussed in its caption; the calculated simulations use a consistent grounded-end position convention.
-
-Part 3 expands the Loading Effect tab from the referenced student note: parallel-load circuit, unrounded worked calculations, connect/disconnect simulator, independent live nonlinearity comparison, general normalised equation, buffer concept, resistance-ratio design challenge and seven formative questions. Error magnitude, signed error and full-scale error are distinguished; relative error at zero ideal output is explicitly undefined.
+Include video-references.js and all assets when uploading the package.

@@ -1,0 +1,9 @@
+PUBLISHING THIS WEBSITE UPDATE
+
+Extract the ZIP and upload ALL extracted files and the assets folder beside index.html.
+Replace the earlier index.html, app.js and styles.css, and include circuit-style.js plus every other supplied JavaScript module.
+Select GitHub Actions as the Pages source; the included workflow deploys the files and assets.
+Wait for deployment to succeed, then refresh the site.
+
+The published site contains Parts 1–5, Practical Lab and Check & Reflect. Parts 6 and 7 are removed and their scripts are not required.
+Do not upload the ZIP as the site, flatten assets, or omit image files.
